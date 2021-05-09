@@ -18,7 +18,7 @@ func InitDb() {
 	username := viper.GetString("db.username")
 	password := viper.GetString("db.password")
 	charset := viper.GetString("db.charset")
-	args := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=true",
+	args := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=true&loc=Local",
 		username,
 		password,
 		host,
