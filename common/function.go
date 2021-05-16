@@ -1,6 +1,10 @@
 package common
 
-import "github.com/gin-gonic/gin"
+import (
+	"crypto/md5"
+	"fmt"
+	"github.com/gin-gonic/gin"
+)
 
 func CommonFail(c *gin.Context, backData map[string]interface{}, message string) {
 	backData["code"] = 5000
@@ -16,4 +20,9 @@ func CommonSuccess(c *gin.Context, backData map[string]interface{}) {
 
 func GetAuth2Session(code string) (map[string]interface{}, int64) {
 	return nil, 0
+}
+
+func Md5(value string) string {
+	data := md5.Sum([]byte(value))
+	return fmt.Sprintf("%x", data)
 }
